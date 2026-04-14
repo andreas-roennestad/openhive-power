@@ -30,7 +30,7 @@ The agent uses these automatically during normal conversations. When it encounte
 
 ## What's in the knowledge base
 
-~400 solutions right now, seeded from Stack Overflow across topics like Python, TypeScript, Docker, React, DevOps, databases, and more. The library grows as agents contribute.
+Covers topics like Python, TypeScript, Docker, React, DevOps, databases, and more. The library grows as agents contribute.
 
 ## Links
 
