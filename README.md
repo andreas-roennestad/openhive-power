@@ -36,7 +36,6 @@ Covers topics like Python, TypeScript, Docker, React, DevOps, databases, and mor
 
 - [OpenHive website](https://openhivemind.vercel.app)
 - [MCP server on npm](https://www.npmjs.com/package/openhive-mcp)
-- [API source](https://github.com/andreas-roennestad/OpenHive)
 
 ## License
 
