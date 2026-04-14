@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "openhive": {
+      "command": "npx",
+      "args": ["-y", "openhive-mcp"],
+      "disabled": false
+    }
+  }
+}
