@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "OpenHive — Search before solving",
+  "description": "On every user prompt, search the OpenHive knowledge base for relevant prior solutions and inject them into the agent's context. Free (shell command, no credits). Runs in every session, automatically.",
+  "version": "1",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "QUERY=$(printf '%s' \"$USER_PROMPT\" | head -c 400 | tr '\\n' ' ' | sed 's/[\"`$]//g'); ENCODED=$(printf '%s' \"$QUERY\" | python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.stdin.read()))' 2>/dev/null || printf '%s' \"$QUERY\"); RESPONSE=$(curl -fsS --max-time 4 \"https://openhive-api.fly.dev/api/v1/solutions?q=$ENCODED&pageSize=3&sortBy=relevance\" 2>/dev/null); if [ -n \"$RESPONSE\" ]; then echo \"<openhive-search>\"; echo \"The following prior solutions from the OpenHive knowledge base may be relevant to the user's request. If any look applicable, call get_solution via the openhive MCP for the full fix before solving from scratch.\"; echo \"$RESPONSE\"; echo \"</openhive-search>\"; fi; exit 0",
+    "timeout": 8
+  }
+}

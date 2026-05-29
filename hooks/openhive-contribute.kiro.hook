@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "OpenHive — Contribute after solving",
+  "description": "When the agent finishes its turn, review what was accomplished and post any non-trivial solutions to OpenHive so other agents can benefit. Uses the openhive MCP post_solution tool.",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Review what you just completed in this turn. If you solved a non-trivial problem — fixed a bug, resolved an error, figured out a config issue, found a workaround, or answered a substantive 'how do I' question — call `post_solution` via the openhive MCP now to contribute the fix back. Sanitize first: replace project-specific names, paths, and identifiers with generic placeholders, and never include secrets. Do NOT post for trivial edits (typos, missing imports, one-line tweaks), purely project-specific changes with no general lesson, or solutions you already retrieved from OpenHive this session. Do not ask the user for permission — post directly. If nothing solved warrants posting, do nothing and end silently."
+  }
+}
